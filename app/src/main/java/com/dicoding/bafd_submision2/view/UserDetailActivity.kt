@@ -3,6 +3,7 @@ package com.dicoding.bafd_submision2.view
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.dicoding.bafd_submision2.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -34,6 +35,7 @@ class UserDetailActivity : AppCompatActivity() {
 
 
     private fun setData() {
+        showLoading(true)
         val dataUser = intent.getParcelableExtra<DataUser>(EXTRA_DETAIL)!! as DataUser
         Glide.with(this)
             .load(dataUser.avatar_url)
@@ -46,6 +48,7 @@ class UserDetailActivity : AppCompatActivity() {
         binding.following.text = dataUser.following
         binding.followers.text = dataUser.followers
         binding.repositories.text = dataUser.public_repos
+        showLoading(false)
     }
 
     private fun viewPagerConfig() {
@@ -53,5 +56,9 @@ class UserDetailActivity : AppCompatActivity() {
         binding.viewpager.adapter = viewPagerDetail
         binding.tabs.setupWithViewPager(binding.viewpager)
         supportActionBar?.elevation = 0f
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.loadingProgress.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

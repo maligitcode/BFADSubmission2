@@ -80,11 +80,11 @@ class MainActivity : AppCompatActivity() {
         binding.userSearch.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
+                showLoading(true)
                 if (query.isNotEmpty()) {
                     listDataUser.clear()
                     recycleConfig()
                     mainViewModel.findUser(query)
-                    showLoading(true)
                     configMainViewModel(listAdapter)
                 } else {
                     return true
