@@ -37,10 +37,11 @@ class HomeViewModel: ViewModel() {
                    listUsersNonMutable.clear()
 
                    val item = response.body()?.items
-                   for (i in 0 until item!!.size){
-                       val jsonObject = item.get(i)
-                       val username = jsonObject.login
-                       UserDetail(username)
+                   val total = response.body()?.total_count?:0;
+                   for (i in 0 until total){
+                       val jsonObject = item?.get(i)
+                       val username = jsonObject?.login
+                       UserDetail(username?:"")
                    }
 
                 } else {
