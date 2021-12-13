@@ -3,13 +3,11 @@ package com.dicoding.bafd_submision2.viewmodel
 import android.util.Log
 import androidx.lifecycle.*
 import com.dicoding.bafd_submision2.network.ApiConfig
-import com.dicoding.bafd_submision2.network.ListUserSearch
 import com.dicoding.bafd_submision2.network.UserResponse
 import com.dicoding.bafd_submision2.network.UserSearchResponse
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Call
-import org.json.JSONObject
 
 
 

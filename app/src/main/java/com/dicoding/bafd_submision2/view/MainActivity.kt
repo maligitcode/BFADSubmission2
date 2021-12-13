@@ -55,6 +55,9 @@ class MainActivity : AppCompatActivity() {
             val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
             startActivity(mIntent)
 
+        }else{
+            val mIntent = Intent(this, ThemaActivity::class.java)
+            this.startActivity(mIntent)
         }
         return super.onOptionsItemSelected(item)
     }

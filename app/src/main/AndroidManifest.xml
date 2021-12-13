@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BAFDSubmision2">
         <activity
+            android:name=".view.ThemaActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.UserDetailActivity"
             android:exported="false" />
         <activity
