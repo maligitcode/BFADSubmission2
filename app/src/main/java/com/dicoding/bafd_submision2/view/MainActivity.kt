@@ -106,5 +106,4 @@ class MainActivity : AppCompatActivity() {
         binding.loadingProgress.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-
 }

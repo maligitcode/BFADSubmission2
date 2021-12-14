@@ -1,7 +1,6 @@
 package com.dicoding.bafd_submision2.viewModel
 
 import android.content.Intent
-import android.service.autofill.UserData
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

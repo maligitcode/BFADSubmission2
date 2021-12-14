@@ -1,16 +1,50 @@
 package com.dicoding.bafd_submision2.model
 
-import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.squareup.moshi.Json
 
+@Entity(tableName = "user_table")
 @Parcelize
 data class DataUser(
-    var avatar_url: String? = "",
-    var name: String? = "",
-    var followers: String? = "",
-    var company: String? = "",
-    var following: String? = "",
-    var public_repos: String? = "",
-    var login: String? = "",
-    var location: String? = ""
+    @PrimaryKey(autoGenerate = false)
+    @field:Json(name = "id")
+    val id: String,
+
+    @ColumnInfo(name = "login")
+    @field:Json(name = "login")
+    val login: String,
+
+    @ColumnInfo(name = "avatar_url")
+    @field:Json(name = "avatar_url")
+    val avatar_url: String?,
+
+    @ColumnInfo(name = "name")
+    @field:Json(name = "name")
+    val name: String?,
+
+    @ColumnInfo(name = "location")
+    @field:Json(name = "location")
+    val location: String?,
+
+    @ColumnInfo(name = "type")
+    @field:Json(name = "type")
+    val type: String?,
+
+    @ColumnInfo(name = "public_repos")
+    @field:Json(name = "public_repos")
+    val public_repos: String?,
+
+
+    @ColumnInfo(name = "followers")
+    @field:Json(name = "followers")
+    val followers: String?,
+
+    @ColumnInfo(name = "following")
+    @field:Json(name = "following")
+    val following: String?
+
 ) : Parcelable
