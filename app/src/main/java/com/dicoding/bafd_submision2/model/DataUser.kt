@@ -10,7 +10,7 @@ import com.squareup.moshi.Json
 @Entity(tableName = "user_table")
 @Parcelize
 data class DataUser(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     @field:Json(name = "id")
     val id: String,
 
@@ -32,7 +32,7 @@ data class DataUser(
 
     @ColumnInfo(name = "type")
     @field:Json(name = "type")
-    val type: String?,
+    val company: String?,
 
     @ColumnInfo(name = "public_repos")
     @field:Json(name = "public_repos")

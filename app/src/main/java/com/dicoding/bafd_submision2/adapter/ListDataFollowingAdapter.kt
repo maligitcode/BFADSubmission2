@@ -75,7 +75,8 @@ class ListDataFollowingAdapter(private val listDataUsersGithub: ArrayList<Follow
                 data.following,
                 data.public_repos,
                 data.login,
-                data.location
+                data.location,
+                data.following,
             )
             val mIntent = Intent(it.context, UserDetailActivity::class.java)
             mIntent.putExtra(UserDetailActivity.EXTRA_DETAIL, dataUserIntent)
