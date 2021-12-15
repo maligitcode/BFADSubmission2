@@ -12,7 +12,7 @@ import com.squareup.moshi.Json
 data class DataUser(
     @PrimaryKey(autoGenerate = true)
     @field:Json(name = "id")
-    val id: String,
+    val id: Int,
 
     @ColumnInfo(name = "login")
     @field:Json(name = "login")

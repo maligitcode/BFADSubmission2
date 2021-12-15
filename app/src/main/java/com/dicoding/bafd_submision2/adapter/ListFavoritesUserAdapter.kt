@@ -36,7 +36,7 @@ class ListFavoritesUserAdapter : RecyclerView.Adapter<ListFavoritesUserAdapter.L
         val data = listFaforites[position]
         holder.itemView.setOnClickListener {
             val dataUserIntent = DataUser(
-                "1",
+                0,
                 data.login,
                 data.avatar_url,
                 data.name,

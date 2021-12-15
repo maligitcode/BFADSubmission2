@@ -68,7 +68,7 @@ class ListDataUsersAdapter(private val listDataUsersGithub: ArrayList<UserRespon
         val data = listDataUsersGithub[position]
         holder.itemView.setOnClickListener {
             val dataUserIntent = DataUser(
-                "1",
+                1,
                 data.login,
                 data.avatar_url,
                 data.name,

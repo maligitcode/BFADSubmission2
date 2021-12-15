@@ -8,23 +8,41 @@ import com.dicoding.bafd_submision2.model.DataUser
 
 @Database(entities = [DataUser::class], version = 1, exportSchema = false)
 abstract class FavoriesDatabase: RoomDatabase() {
-    companion object{
+    abstract fun favoritesDao(): FavoritesDao
+
+    companion object {
         @Volatile
         private var INSTANCE: FavoriesDatabase? = null
 
+        @JvmStatic
         fun getDatabase(context: Context): FavoriesDatabase {
-            val mInstance = INSTANCE
-            if (mInstance != null)
-                return mInstance
-
-            synchronized(FavoriesDatabase::class){
-                val mbuilder = Room.databaseBuilder(
-                    context.applicationContext, FavoriesDatabase::class.java, "db_github"
-                ).build()
-                INSTANCE = mbuilder
-                return mbuilder
+            if (INSTANCE == null) {
+                synchronized(FavoriesDatabase::class.java) {
+                    INSTANCE = Room.databaseBuilder(context.applicationContext,
+                        FavoriesDatabase::class.java, "fav_database")
+                        .build()
+                }
             }
+            return INSTANCE as FavoriesDatabase
         }
     }
-    abstract fun favoriesDao(): FavoritesDao
 }
+
+//    companion object{
+//        @Volatile
+//        private var INSTANCE: FavoriesDatabase? = null
+//
+//        fun getDatabase(context: Context): FavoriesDatabase {
+//            val mInstance = INSTANCE
+//            if (mInstance != null)
+//                return mInstance
+//
+//            synchronized(FavoriesDatabase::class){
+//                val mbuilder = Room.databaseBuilder(
+//                    context.applicationContext, FavoriesDatabase::class.java, "db_github"
+//                ).build()
+//                INSTANCE = mbuilder
+//                return mbuilder
+//            }
+//        }
+//    }

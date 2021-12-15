@@ -5,6 +5,7 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.ViewModelProvider
 import com.dicoding.bafd_submision2.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -34,6 +35,11 @@ class UserDetailActivity : AppCompatActivity() {
         }
         setData()
         viewPagerConfig()
+
+        favoriteViewModel = FavoriteViewModel(
+            this.application,
+        )
+
 
         binding?.fabAdd?.setOnClickListener { view ->
             val dataUser = intent.getParcelableExtra<DataUser>(EXTRA_DETAIL)!! as DataUser

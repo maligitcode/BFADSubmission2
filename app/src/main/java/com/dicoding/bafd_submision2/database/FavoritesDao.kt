@@ -26,9 +26,6 @@ interface FavoritesDao {
     @Query("SELECT * from user_table ORDER BY login ASC")
     fun getUserListProvider(): Cursor
 
-    @Query("SELECT * from user_table ORDER BY login ASC")
-    fun getWidgetList(): List<DataUser>
-
     @Update
     fun update(user: DataUser)
 }

@@ -14,7 +14,7 @@ class UserFavoriteRepositories(application: Application) {
     private val executorService: ExecutorService = Executors.newSingleThreadExecutor()
     init {
         val db = FavoriesDatabase.getDatabase(application)
-        favoriesDao = db.favoriesDao()
+        favoriesDao = db.favoritesDao()
     }
     fun getAllfavorites(): LiveData<List<DataUser>> = favoriesDao.getUserList()
 
