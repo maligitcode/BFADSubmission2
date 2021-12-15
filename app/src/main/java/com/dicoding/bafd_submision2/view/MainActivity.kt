@@ -55,8 +55,11 @@ class MainActivity : AppCompatActivity() {
             val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
             startActivity(mIntent)
 
-        }else{
+        }else  if (item.itemId == R.id.cange_thema) {
             val mIntent = Intent(this, ThemaActivity::class.java)
+            this.startActivity(mIntent)
+        }else{
+            val mIntent = Intent(this, FavoritesActivity::class.java)
             this.startActivity(mIntent)
         }
         return super.onOptionsItemSelected(item)

@@ -188,7 +188,17 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/repo" />
+
                     </LinearLayout>
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/fab_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foregroundGravity="bottom"
+                        app:fabSize="normal"
+                        app:layout_anchorGravity="bottom|end"
+                        app:srcCompat="@drawable/ic_favorite_24" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -213,12 +223,12 @@
                 app:tabMode="fixed"
                 app:tabRippleColor="@null"
                 app:tabTextColor="@android:color/black"/>
+
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/tabs">
-            </androidx.viewpager.widget.ViewPager>
+                android:layout_below="@id/tabs"></androidx.viewpager.widget.ViewPager>
 
         </RelativeLayout>
     </ScrollView>

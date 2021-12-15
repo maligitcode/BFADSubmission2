@@ -1,5 +1,6 @@
 package com.dicoding.bafd_submision2.view
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.bafd_submision2.databinding.ActivityUserDetailBinding
 import com.dicoding.bafd_submision2.model.DataUser
+import com.kylix.submissionbfaa3.viewmodels.FavoriteViewModel
 
 class UserDetailActivity : AppCompatActivity() {
 
@@ -17,6 +19,7 @@ class UserDetailActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityUserDetailBinding
+    private lateinit var favoriteViewModel: FavoriteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,11 @@ class UserDetailActivity : AppCompatActivity() {
         }
         setData()
         viewPagerConfig()
+
+        binding?.fabAdd?.setOnClickListener { view ->
+            val dataUser = intent.getParcelableExtra<DataUser>(EXTRA_DETAIL)!! as DataUser
+            favoriteViewModel.insert(dataUser)
+        }
     }
 
 

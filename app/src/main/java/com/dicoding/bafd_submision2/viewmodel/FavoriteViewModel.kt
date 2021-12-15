@@ -10,7 +10,7 @@ class FavoriteViewModel(application: Application) : ViewModel() {
 
     private val muserRepository: UserFavoriteRepositories = UserFavoriteRepositories(application)
 
-    fun getAllNotes(): LiveData<List<DataUser>> = muserRepository.getAllfavorites()
+    fun getAllFav(): LiveData<List<DataUser>> = muserRepository.getAllfavorites()
 
     fun insert(dataUser: DataUser) {
         muserRepository.insert(dataUser)
