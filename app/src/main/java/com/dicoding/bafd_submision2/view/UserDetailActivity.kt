@@ -5,6 +5,7 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.bafd_submision2.R
 import com.bumptech.glide.Glide
@@ -44,6 +45,7 @@ class UserDetailActivity : AppCompatActivity() {
         binding?.fabAdd?.setOnClickListener { view ->
             val dataUser = intent.getParcelableExtra<DataUser>(EXTRA_DETAIL)!! as DataUser
             favoriteViewModel.insert(dataUser)
+            Toast.makeText(this,"success",Toast.LENGTH_LONG);
         }
     }
 
