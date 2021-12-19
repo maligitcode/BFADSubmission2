@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Github API</string>
     <string name="fullname">Muhamad Ali</string>
-    <string name="login">%s login</string>
+    <string name="login">login</string>
     <string name="find_username">Find Username</string>
-    <string name="_100_repository">%s Repositories</string>
+    <string name="_100_repository">Repositories</string>
     <string name="repo">Repositories</string>
-    <string name="following">%s following</string>
-    <string name="followers">%s followers</string>
-    <string name="company">%s company</string>
-    <string name="location">%s location</string>
+    <string name="following">following</string>
+    <string name="followers">followers</string>
+    <string name="company">company</string>
+    <string name="location">location</string>
     <string name="tempdata"></string>
     <string name="separator">Separator</string>
     <!-- TODO: Remove or change this placeholder text -->

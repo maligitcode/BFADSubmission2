@@ -29,7 +29,7 @@ class FavoritesActivity : AppCompatActivity() {
             }
         })
 
-        adapter = ListFavoritesUserAdapter()
+        adapter = ListFavoritesUserAdapter(this.application)
 
         binding?.rvFav?.layoutManager = LinearLayoutManager(this)
         binding?.rvFav?.setHasFixedSize(true)

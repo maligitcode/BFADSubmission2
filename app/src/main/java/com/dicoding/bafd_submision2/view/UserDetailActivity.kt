@@ -43,9 +43,9 @@ class UserDetailActivity : AppCompatActivity() {
 
 
         binding?.fabAdd?.setOnClickListener { view ->
-            val dataUser = intent.getParcelableExtra<DataUser>(EXTRA_DETAIL)!! as DataUser
-            favoriteViewModel.insert(dataUser)
-            Toast.makeText(this,"success",Toast.LENGTH_SHORT).show()
+                val dataUser = intent.getParcelableExtra<DataUser>(EXTRA_DETAIL)!! as DataUser
+                favoriteViewModel.insert(dataUser)
+                Toast.makeText(this,"success added to favorites",Toast.LENGTH_SHORT).show()
         }
     }
 

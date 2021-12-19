@@ -2,7 +2,6 @@ package com.kylix.submissionbfaa3.data
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.dicoding.bafd_submision2.database.FavoriesDatabase
 import com.dicoding.bafd_submision2.database.FavoritesDao
 import com.dicoding.bafd_submision2.model.DataUser

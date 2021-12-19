@@ -13,8 +13,10 @@
         <entry key="..\:/IT Library/IT Training Modul/Dicoding/Kominfo/Fundemental Android/submission 2/app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/IT Library/IT Training Modul/Dicoding/Kominfo/Fundemental Android/submission 2/github/app/src/main/res/layout/activity_favorites.xml" value="0.12001811594202899" />
         <entry key="..\:/IT Library/IT Training Modul/Dicoding/Kominfo/Fundemental Android/submission 2/github/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/IT Library/IT Training Modul/Dicoding/Kominfo/Fundemental Android/submission 2/github/app/src/main/res/layout/activity_spaschscreen.xml" value="0.20416666666666666" />
         <entry key="..\:/IT Library/IT Training Modul/Dicoding/Kominfo/Fundemental Android/submission 2/github/app/src/main/res/layout/activity_thema.xml" value="0.13179347826086957" />
         <entry key="..\:/IT Library/IT Training Modul/Dicoding/Kominfo/Fundemental Android/submission 2/github/app/src/main/res/layout/activity_user_detail.xml" value="0.25" />
+        <entry key="..\:/IT Library/IT Training Modul/Dicoding/Kominfo/Fundemental Android/submission 2/github/app/src/main/res/layout/item_favorites.xml" value="0.46296296296296297" />
         <entry key="..\:/IT Library/IT Training Modul/Dicoding/Kominfo/Fundemental Android/submission 2/github/app/src/main/res/layout/item_user.xml" value="0.12001811594202899" />
         <entry key="..\:/IT Library/IT Training Modul/Dicoding/Kominfo/Fundemental Android/submission 2/github/app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
       </map>
@@ -25,5 +27,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.5" />
+      </ProjectState>
+    </option>
   </component>
 </project>
