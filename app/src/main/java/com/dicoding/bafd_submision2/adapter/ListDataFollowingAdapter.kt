@@ -31,7 +31,7 @@ class ListDataFollowingAdapter(private val listDataUsersGithub: ArrayList<Follow
         val username: TextView = itemView.findViewById(R.id.fullName) as TextView
         val count_repository: TextView = itemView.findViewById(R.id.count_repository) as TextView
         val count_followers: TextView = itemView.findViewById(R.id.count_followers) as TextView
-        val count_following: TextView = itemView.findViewById(R.id.count_followers) as TextView
+        val count_following: TextView = itemView.findViewById(R.id.count_following) as TextView
 
         fun bind(dataUsers: FollowingResponse) {
             with(itemView) {
@@ -44,10 +44,8 @@ class ListDataFollowingAdapter(private val listDataUsersGithub: ArrayList<Follow
                 username.text = itemView.context.getString(R.string.login, dataUsers.login)
                 count_repository.text =
                     itemView.context.getString(R.string._100_repository, dataUsers.public_repos)
-                count_followers.text =
-                    itemView.context.getString(R.string.followers, dataUsers.followers)
-                count_following.text =
-                    itemView.context.getString(R.string.following, dataUsers.following)
+                count_followers.text =dataUsers.followers+" Follower"
+                count_following.text =dataUsers.following+" Following"
             }
         }
     }
@@ -68,7 +66,7 @@ class ListDataFollowingAdapter(private val listDataUsersGithub: ArrayList<Follow
         val data = listDataUsersGithub[position]
         holder.itemView.setOnClickListener {
             val dataUserIntent = DataUser(
-                0,
+                data.id,
                 data.login,
                 data.avatar_url,
                 data.name,

@@ -8,11 +8,12 @@
     android:padding="12dp"
     tools:context=".view.MainActivity">
 
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/user_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="@color/purple_200"
         app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

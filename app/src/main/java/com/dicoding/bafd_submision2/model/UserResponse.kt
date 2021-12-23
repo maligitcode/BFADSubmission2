@@ -28,6 +28,9 @@ data class ListUserSearch(
 
 data class UserResponse(
 
+    @field:SerializedName("id")
+    val id: Int,
+
     @field:SerializedName("avatar_url")
     val avatar_url: String,
 

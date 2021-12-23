@@ -41,6 +41,9 @@ class ListFavoritesUserAdapter(application: Application) : RecyclerView.Adapter<
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListFavoritesUserHolder {
         val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        favoriteViewModel = FavoriteViewModel(
+            application,
+        )
         return ListFavoritesUserHolder(binding)
     }
 
@@ -49,7 +52,7 @@ class ListFavoritesUserAdapter(application: Application) : RecyclerView.Adapter<
         val data = listFaforites[position]
         holder.itemView.setOnClickListener {
             val dataUserIntent = DataUser(
-                1,
+                data.id,
                 data.login,
                 data.avatar_url,
                 data.name,
@@ -59,9 +62,7 @@ class ListFavoritesUserAdapter(application: Application) : RecyclerView.Adapter<
                 data.followers,
                 data.following,
             )
-            favoriteViewModel = FavoriteViewModel(
-                application,
-            )
+
 
             val builder =
                 AlertDialog.Builder(holder.itemView.getRootView().getContext(), R.style.MyAlertDialogStyle)
@@ -94,7 +95,7 @@ class ListFavoritesUserAdapter(application: Application) : RecyclerView.Adapter<
         val username: TextView = itemView.findViewById(R.id.fullName) as TextView
         val count_repository: TextView = itemView.findViewById(R.id.count_repository) as TextView
         val count_followers: TextView = itemView.findViewById(R.id.count_followers) as TextView
-        val count_following: TextView = itemView.findViewById(R.id.count_followers) as TextView
+        val count_following: TextView = itemView.findViewById(R.id.count_following) as TextView
 
         @SuppressLint("StringFormatInvalid")
         fun bind(dataUsers: DataUser) {

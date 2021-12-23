@@ -20,6 +20,18 @@ interface ApiService {
         @Path("username") username: String?
     ): Call<UserResponse>
 
+    @GET("users/{username}")
+    @Headers("Authorization: token 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")
+    fun followigDetail(
+        @Path("username") username: String?
+    ): Call<FollowingResponse>
+
+    @GET("users/{username}")
+    @Headers("Authorization: token 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")
+    fun followerDetail(
+        @Path("username") username: String?
+    ): Call<FollowersResponse>
+
     @GET("users/{username}/followers")
     @Headers("Authorization: token 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")
     fun userFollower(

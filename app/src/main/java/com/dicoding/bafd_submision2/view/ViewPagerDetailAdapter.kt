@@ -10,13 +10,13 @@ class ViewPagerDetailAdapter(private val mContext: Context, fm: FragmentManager)
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     private val pages = listOf(
-        FollowersFragment(),
-        FollowingFragment()
+        FollowingFragment(),
+        FollowersFragment()
     )
 
     private val tabTitles = intArrayOf(
-        R.string.following,
-        R.string.followers
+        R.string.followingdetail,
+        R.string.followersdetail
     )
 
     override fun getItem(position: Int): Fragment {

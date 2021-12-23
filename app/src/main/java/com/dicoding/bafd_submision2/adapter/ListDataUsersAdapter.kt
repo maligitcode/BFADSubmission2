@@ -28,10 +28,10 @@ class ListDataUsersAdapter(private val listDataUsersGithub: ArrayList<UserRespon
     inner class ListDataHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val avatar: ImageView = itemView.findViewById(R.id.avatar) as ImageView
         val fullName: TextView = itemView.findViewById(R.id.fullName) as TextView
-        val username: TextView = itemView.findViewById(R.id.fullName) as TextView
+        val username: TextView = itemView.findViewById(R.id.username) as TextView
         val count_repository: TextView = itemView.findViewById(R.id.count_repository) as TextView
         val count_followers: TextView = itemView.findViewById(R.id.count_followers) as TextView
-        val count_following: TextView = itemView.findViewById(R.id.count_followers) as TextView
+        val count_following: TextView = itemView.findViewById(R.id.count_following) as TextView
 
         fun bind(dataUsers: UserResponse) {
             with(itemView) {
@@ -41,7 +41,7 @@ class ListDataUsersAdapter(private val listDataUsersGithub: ArrayList<UserRespon
                     .into(avatar)
 
                 fullName.text = dataUsers.name
-                username.text = itemView.context.getString(R.string.login, dataUsers.login)
+                username.text = dataUsers.login
                 count_repository.text =
                     itemView.context.getString(R.string._100_repository, dataUsers.public_repos)
                 count_followers.text =
@@ -68,7 +68,7 @@ class ListDataUsersAdapter(private val listDataUsersGithub: ArrayList<UserRespon
         val data = listDataUsersGithub[position]
         holder.itemView.setOnClickListener {
             val dataUserIntent = DataUser(
-                1,
+                data.id,
                 data.login,
                 data.avatar_url,
                 data.name,

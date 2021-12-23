@@ -36,7 +36,7 @@ class HomeViewModel: ViewModel() {
 
                    val item = response.body()?.items
 //                   val total = response.body()?.total_count?:0;
-                   val total = response.body()?.items?.size
+                   val total = (response.body()?.items?.size)?.minus(1)
                    for (i in 0 until total!!){
                        print(i)
                        val jsonObject = item?.get(i)

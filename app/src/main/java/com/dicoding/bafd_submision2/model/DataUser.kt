@@ -13,7 +13,7 @@ data class DataUser(
     @PrimaryKey(autoGenerate = true)
     @field:Json(name = "id")
     val id: Int,
-
+    
     @ColumnInfo(name = "login")
     @field:Json(name = "login")
     val login: String,
