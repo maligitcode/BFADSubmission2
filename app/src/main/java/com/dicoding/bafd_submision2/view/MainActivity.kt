@@ -1,5 +1,6 @@
 package com.dicoding.bafd_submision2.view
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,16 +8,24 @@ import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.bafd_submision2.R
 import com.dicoding.bafd_submision2.databinding.ActivityMainBinding
 import com.dicoding.bafd_submision2.network.UserResponse
+import com.dicoding.bafd_submision2.setting.SettingPreferences
 import com.dicoding.bafd_submision2.viewModel.ListDataUsersAdapter
 import com.dicoding.bafd_submision2.viewmodel.HomeViewModel
+import com.dicoding.bafd_submision2.viewmodel.SetingViewModel
+import com.dicoding.bafd_submision2.viewmodel.ViewModelFactory
 
 //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
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -38,6 +47,21 @@ class MainActivity : AppCompatActivity() {
             this,
             ViewModelProvider.NewInstanceFactory()
         ).get(HomeViewModel::class.java)
+
+        val pref = SettingPreferences.getInstance(dataStore)
+        val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(
+            SetingViewModel::class.java
+        )
+        mainViewModel.getThemeSettings().observe(this,
+            { isDarkModeActive: Boolean ->
+                if (isDarkModeActive) {
+
+                } else {
+                    val mIntent = Intent(this, ThemaActivity::class.java)
+                    this.startActivity(mIntent)
+                }
+            })
+
 
         searchData()
         recycleConfig()
