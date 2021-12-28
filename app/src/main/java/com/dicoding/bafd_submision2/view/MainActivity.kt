@@ -8,6 +8,7 @@ import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -25,7 +26,8 @@ import com.dicoding.bafd_submision2.viewmodel.SetingViewModel
 import com.dicoding.bafd_submision2.viewmodel.ViewModelFactory
 
 //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
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "theme_setting")
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -48,6 +50,11 @@ class MainActivity : AppCompatActivity() {
             ViewModelProvider.NewInstanceFactory()
         ).get(HomeViewModel::class.java)
 
+        searchData()
+        recycleConfig()
+        configMainViewModel(listAdapter)
+
+
         val pref = SettingPreferences.getInstance(dataStore)
         val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(
             SetingViewModel::class.java
@@ -55,17 +62,17 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.getThemeSettings().observe(this,
             { isDarkModeActive: Boolean ->
                 if (isDarkModeActive) {
-
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    binding.switchTheme.isChecked = true
                 } else {
-                    val mIntent = Intent(this, ThemaActivity::class.java)
-                    this.startActivity(mIntent)
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    binding.switchTheme.isChecked = false
                 }
             })
 
-
-        searchData()
-        recycleConfig()
-        configMainViewModel(listAdapter)
+        binding.switchTheme.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
+            mainViewModel.saveThemeSetting(isChecked)
+        }
 
     }
 
@@ -79,10 +86,12 @@ class MainActivity : AppCompatActivity() {
             val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
             startActivity(mIntent)
 
-        }else  if (item.itemId == R.id.cange_thema) {
-            val mIntent = Intent(this, ThemaActivity::class.java)
-            this.startActivity(mIntent)
-        }else{
+        }
+//        else  if (item.itemId == R.id.cange_thema) {
+//            val mIntent = Intent(this, ThemaActivity::class.java)
+//            this.startActivity(mIntent)
+//        }
+        else{
             val mIntent = Intent(this, FavoritesActivity::class.java)
             this.startActivity(mIntent)
         }

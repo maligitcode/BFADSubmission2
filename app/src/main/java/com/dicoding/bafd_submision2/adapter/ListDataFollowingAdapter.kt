@@ -41,7 +41,7 @@ class ListDataFollowingAdapter(private val listDataUsersGithub: ArrayList<Follow
                     .into(avatar)
 
                 fullName.text = dataUsers.name
-                username.text = itemView.context.getString(R.string.login, dataUsers.login)
+                username.text = dataUsers.login
                 count_repository.text =
                     itemView.context.getString(R.string._100_repository, dataUsers.public_repos)
                 count_followers.text =dataUsers.followers+" Follower"
